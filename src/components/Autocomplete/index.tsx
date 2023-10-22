@@ -6,6 +6,7 @@ import { getMovies } from '../../services/movies';
 
 import { GetMoviesResponse } from '../../services/movies';
 import { useDebounce } from '../../utils/useDebounce';
+import { Link } from 'react-router-dom';
 
 const INPUT_CHANGE_DEBOUNCE_MS = 300;
 
@@ -29,25 +30,21 @@ const Autocomplete = () => {
             <input type="text" className={styles.input} value={query} onChange={handleChange} />
             <div className={styles.movies}>
                 {movies?.length > 0 &&
-                    movies.map((movie) => (
-                        <MovieCard
-                            key={movie.poster_path + movie.release_date}
-                            name={movie.original_title}
-                            year={movie.release_date}
-                            poster={movie.poster_path}
-                        />
-                    ))}
+                    movies.map(
+                        (movie) =>
+                            movie?.poster_path && (
+                                <Link to={`/movie/${movie.id}`} key={movie.poster_path + movie.release_date}>
+                                    <MovieCard
+                                        name={movie.original_title}
+                                        year={movie.release_date}
+                                        poster={movie.poster_path}
+                                    />
+                                </Link>
+                            ),
+                    )}
             </div>
         </div>
     );
 };
 
 export default Autocomplete;
-
-// useEffect(() => {
-//     if (!Boolean(debouncedInputValue)) {
-//         setMovies([]);
-//     } else {
-//         getMovies({ query: debouncedInputValue }).then((data) => setMovies(data));
-//     }
-// }, [debouncedInputValue]);

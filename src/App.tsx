@@ -1,15 +1,19 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+
 import styles from './App.module.css';
-import Autocomplete from './components/Autocomplete';
+
+import Home from './pages/Home';
+import Movie from './pages/Movie';
 
 const App = () => {
-    console.log(styles, 'styles');
-
-    // add router
     return (
         <div className={styles.app}>
             <header className={styles.header}>WCC Academy 2023</header>
-            <Autocomplete />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path={`/movie/:movieId`} element={<Movie />} />
+            </Routes>
         </div>
     );
 };

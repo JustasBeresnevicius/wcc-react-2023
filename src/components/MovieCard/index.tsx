@@ -9,13 +9,13 @@ type MovieCardProps = {
 };
 
 const MovieCard = ({ name, year, poster }: MovieCardProps) => {
-    return poster ? (
+    return (
         <div className={styles.card}>
             <img className={styles.poster} src={`https://image.tmdb.org/t/p/w500${poster}`} alt={name} />
             <p>{name} </p>
             <p>{year}</p>
         </div>
-    ) : null;
+    );
 };
 
 export default MovieCard;
