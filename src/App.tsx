@@ -1,21 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styles from './App.module.css';
+import Autocomplete from './components/Autocomplete';
 
-function App() {
+const App = () => {
+    console.log(styles, 'styles');
+
+    // add router
     return (
-        <div className="App">
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-                    Learn React
-                </a>
-            </header>
+        <div className={styles.app}>
+            <header className={styles.header}>WCC Academy 2023</header>
+            <Autocomplete />
         </div>
     );
-}
+};
 
 export default App;

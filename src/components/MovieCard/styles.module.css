@@ -1,0 +1,15 @@
+.card {
+    display: block;
+    margin: 16px;
+}
+
+.poster {
+    max-width: 300px;
+}
+
+@media (min-width: 500px) {
+    .poster {
+        max-width: 500px;
+        max-height: 700px;
+    }
+}

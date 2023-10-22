@@ -1,0 +1,21 @@
+.text {
+    margin-bottom: 16px;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 32px;
+}
+
+.input {
+    width: 350px;
+    height: 30px;
+    background-color: #fce38a;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+}
+
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    grid-gap: 3rem 2rem;
+}
